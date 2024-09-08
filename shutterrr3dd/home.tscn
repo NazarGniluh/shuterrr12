@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://df8s5jd6yah21"]
+
+[ext_resource type="PackedScene" uid="uid://b6lfaa04vd68m" path="res://hommess.glb" id="1_sbwqr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ijr8w"]
+size = Vector3(0.001, 12.5997, 12.9976)
+
+[node name="home" type="StaticBody3D"]
+
+[node name="hommess" parent="." instance=ExtResource("1_sbwqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02505, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01895, 4.2236, 2.91196)
+shape = SubResource("BoxShape3D_ijr8w")
