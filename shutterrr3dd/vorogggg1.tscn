@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://iu2fqyr5khr6"]
+
+[ext_resource type="PackedScene" uid="uid://cg656br045iue" path="res://vorogg.glb" id="1_jhd4g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ob5oq"]
+radius = 8.86372
+height = 29.0786
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="vorogg" parent="." instance=ExtResource("1_jhd4g")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.62927, 0)
+shape = SubResource("CapsuleShape3D_ob5oq")

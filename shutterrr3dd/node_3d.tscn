@@ -1,14 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd1c41m8u8p77"]
+[gd_scene load_steps=10 format=3 uid="uid://bd1c41m8u8p77"]
 
 [ext_resource type="PackedScene" uid="uid://bc2uc3w7siwvh" path="res://untitled.glb" id="1_btid1"]
+[ext_resource type="Script" path="res://character_body_3d.gd" id="1_sn32c"]
+[ext_resource type="PackedScene" uid="uid://df8s5jd6yah21" path="res://home.tscn" id="2_lt27n"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eegyp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_0hn1l"]
+sky_material = SubResource("ProceduralSkyMaterial_eegyp")
+
+[sub_resource type="Environment" id="Environment_550wt"]
+background_mode = 2
+sky = SubResource("Sky_0hn1l")
+tonemap_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_pqkqo"]
-size = Vector3(20, 1, 20)
+size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v30le"]
-size = Vector3(20, 1, 20)
+size = Vector3(20, 1, 19.9998)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jy5oo"]
+radius = 5.0
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128018, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_550wt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 1.95
+shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -16,12 +42,28 @@ size = Vector3(20, 1, 20)
 mesh = SubResource("BoxMesh_pqkqo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00012207)
 shape = SubResource("BoxShape3D_v30le")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_sn32c")
 
 [node name="untitled" parent="CharacterBody3D" instance=ExtResource("1_btid1")]
 transform = Transform3D(0.999931, 0, 0.0117632, 0, 1, 0, -0.0117632, 0, 0.999931, -13.526, -4.07529, -30.2637)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(0.999357, 0, -0.0358414, 0, 1, 0, 0.0358414, 0, 0.999357, -0.511458, 3.94364, 0)
+transform = Transform3D(0.999357, 0, -0.0358414, 0, 1, 0, 0.0358414, 0, 0.999357, -1.51146, 3.94364, -2)
+shape = SubResource("SphereShape3D_jy5oo")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 6, -5)
+fov = 91.0221
+
+[node name="home" parent="." instance=ExtResource("2_lt27n")]
+transform = Transform3D(1, 0, 0, 0, 0.99939, -0.0349169, 0, 0.0349169, 0.99939, -4.73106, 0.219979, 11.3527)
+
+[node name="home2" parent="." instance=ExtResource("2_lt27n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1855, 0.575624, 11.1743)
+
+[node name="home3" parent="." instance=ExtResource("2_lt27n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.84159, 0, 11.0513)
