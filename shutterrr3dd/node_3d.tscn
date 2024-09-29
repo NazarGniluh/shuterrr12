@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bd1c41m8u8p77"]
 
-[ext_resource type="PackedScene" uid="uid://bc2uc3w7siwvh" path="res://untitled.glb" id="1_btid1"]
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_sn32c"]
 [ext_resource type="PackedScene" uid="uid://df8s5jd6yah21" path="res://home.tscn" id="2_lt27n"]
+[ext_resource type="PackedScene" uid="uid://c0sj448sqxw3a" path="res://player_17.blend" id="2_w7abw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eegyp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,16 +48,22 @@ shape = SubResource("BoxShape3D_v30le")
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_sn32c")
 
-[node name="untitled" parent="CharacterBody3D" instance=ExtResource("1_btid1")]
-transform = Transform3D(0.999931, 0, 0.0117632, 0, 1, 0, -0.0117632, 0, 0.999931, -13.526, -4.07529, -30.2637)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(0.999357, 0, -0.0358414, 0, 1, 0, 0.0358414, 0, 0.999357, -1.51146, 3.94364, -2)
 shape = SubResource("SphereShape3D_jy5oo")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 6, -5)
+transform = Transform3D(-0.897913, -0.0611356, -0.435906, -0.0549974, 0.998129, -0.0266994, 0.436723, 0, -0.899596, 0, 6, -5)
 fov = 91.0221
+
+[node name="player_17" parent="CharacterBody3D" instance=ExtResource("2_w7abw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Cube" parent="CharacterBody3D/player_17/Арматура/Skeleton3D" index="0"]
+transform = Transform3D(-0.0253489, 0.0510588, 0.00241366, 0.194683, 0.00676833, -0.0021291, -0.0101115, 0.00231335, -0.0470435, 0.101016, -0.318204, 1.13295)
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
+transform = Transform3D(0.999815, 0, -0.0192498, 0, 1, 0, 0.0192498, 0, 0.999815, 0.0358186, 1.00276, 1)
 
 [node name="home" parent="." instance=ExtResource("2_lt27n")]
 transform = Transform3D(1, 0, 0, 0, 0.99939, -0.0349169, 0, 0.0349169, 0.99939, -4.73106, 0.219979, 11.3527)
@@ -67,3 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1855, 0.575624, 11.1743)
 
 [node name="home3" parent="." instance=ExtResource("2_lt27n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.84159, 0, 11.0513)
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+
+[editable path="CharacterBody3D/player_17"]
