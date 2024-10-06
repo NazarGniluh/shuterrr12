@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://df8s5jd6yah21"]
+[gd_scene load_steps=4 format=3 uid="uid://df8s5jd6yah21"]
 
 [ext_resource type="PackedScene" uid="uid://b6lfaa04vd68m" path="res://hommess.glb" id="1_sbwqr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qv2bu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijr8w"]
 size = Vector3(0.001, 12.5997, 12.9976)
 
 [node name="home" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_qv2bu")
 
 [node name="hommess" parent="." instance=ExtResource("1_sbwqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02505, 0)

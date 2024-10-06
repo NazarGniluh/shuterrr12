@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd1c41m8u8p77"]
+[gd_scene load_steps=12 format=3 uid="uid://bd1c41m8u8p77"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_sn32c"]
 [ext_resource type="PackedScene" uid="uid://df8s5jd6yah21" path="res://home.tscn" id="2_lt27n"]
 [ext_resource type="PackedScene" uid="uid://c0sj448sqxw3a" path="res://player_17.blend" id="2_w7abw"]
+[ext_resource type="PackedScene" uid="uid://b1v1f67xjtj4v" path="res://derevooooo1.tscn" id="4_6qy5h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eegyp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,14 +17,19 @@ background_mode = 2
 sky = SubResource("Sky_0hn1l")
 tonemap_mode = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jk1ac"]
+albedo_color = Color(0, 1, 0, 1)
+metallic = 0.25
+
 [sub_resource type="BoxMesh" id="BoxMesh_pqkqo"]
+material = SubResource("StandardMaterial3D_jk1ac")
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v30le"]
-size = Vector3(20, 1, 19.9998)
+size = Vector3(50, 1, 50)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jy5oo"]
-radius = 5.0
+radius = 5.91504
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128018, 0)
@@ -42,19 +48,19 @@ shadow_enabled = true
 mesh = SubResource("BoxMesh_pqkqo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00012207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.50002)
 shape = SubResource("BoxShape3D_v30le")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_sn32c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(0.999357, 0, -0.0358414, 0, 1, 0, 0.0358414, 0, 0.999357, -1.51146, 3.94364, -2)
+transform = Transform3D(0.999357, 0, -0.0358414, 0, 1, 0, 0.0358414, 0, 0.999357, -1.39466, 3.94364, -2)
 shape = SubResource("SphereShape3D_jy5oo")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(-0.897913, -0.0611356, -0.435906, -0.0549974, 0.998129, -0.0266994, 0.436723, 0, -0.899596, 0, 6, -5)
-fov = 91.0221
+transform = Transform3D(-0.897913, -0.0611357, -0.435906, -0.0549974, 0.998129, -0.0266993, 0.436723, 1.7553e-08, -0.899596, -1.70035, 3.04877, -3.74374)
+fov = 82.4934
 
 [node name="player_17" parent="CharacterBody3D" instance=ExtResource("2_w7abw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -75,5 +81,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1855, 0.575624, 11.1743)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.84159, 0, 11.0513)
 
 [node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("4_6qy5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7334, -1.33038, 0)
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("4_6qy5h")]
+transform = Transform3D(0.00822039, 0, 0.999966, 0, 1, 0, -0.999966, 0, 0.00822039, 17.4815, 0, -45.2295)
+
+[node name="StaticBody3D4" parent="." instance=ExtResource("4_6qy5h")]
+transform = Transform3D(-0.999961, 0.00181514, -0.00863937, 0.00181507, 0.999998, 1.56817e-05, 0.00863938, 0, -0.999963, -47.7344, 0, -53.1758)
+
+[node name="StaticBody3D5" parent="." instance=ExtResource("4_6qy5h")]
+transform = Transform3D(-0.00848233, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00848233, -18.2023, 0, 47.9873)
+
+[node name="StaticBody3D6" parent="." instance=ExtResource("4_6qy5h")]
+transform = Transform3D(-0.0259502, 0, -0.999663, 0, 1, 0, 0.999663, 0, -0.0259502, -63.5472, 0, 8.83745)
 
 [editable path="CharacterBody3D/player_17"]
