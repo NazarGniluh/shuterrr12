@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b134jgkogm1sk"]
+
+[ext_resource type="PackedScene" uid="uid://ck773kcna5th7" path="res://Cottage_FREE241.glb" id="1_fm6t1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7nut"]
+size = Vector3(11, 7, 13)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="Cottage_FREE241" parent="." instance=ExtResource("1_fm6t1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_s7nut")
