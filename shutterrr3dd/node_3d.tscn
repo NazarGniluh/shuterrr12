@@ -102,4 +102,7 @@ transform = Transform3D(-0.00268785, 0, 0.999996, 0, 1, 0, -0.999996, 0, -0.0026
 [node name="trees3" parent="." instance=ExtResource("4_efiaa")]
 transform = Transform3D(-0.411005, 0, 0.911633, 0, 1, 0, -0.911633, 0, -0.411005, 9.03485, 0, -25.9838)
 
+[node name="trees4" parent="." instance=ExtResource("4_efiaa")]
+transform = Transform3D(-0.649634, 0, 0.760247, 0, 1, 0, -0.760247, 0, -0.649634, -7.16293, -1.22502, 33.258)
+
 [editable path="CharacterBody3D/player_17"]
